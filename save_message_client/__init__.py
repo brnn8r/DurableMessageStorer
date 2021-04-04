@@ -20,4 +20,4 @@ async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
 
     logging.info(f"saved {message}")
 
-    return func.HttpResponse("Successfully sent {message} to message_store@{message_store_id}", status_code=200)
+    return func.HttpResponse(f"Successfully sent {message} to message_store@{message_store_id}", status_code=200)
