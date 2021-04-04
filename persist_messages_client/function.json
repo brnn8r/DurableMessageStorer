@@ -2,7 +2,7 @@
   "scriptFile": "__init__.py",
   "bindings": [
     {
-      "name": "persist_messages_timer",
+      "name": "persistMessagesTimer",
       "type": "timerTrigger",
       "direction": "in",
       "schedule": "0 */10 * * * *"

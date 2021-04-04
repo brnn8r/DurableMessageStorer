@@ -10,6 +10,7 @@ async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
     message = req.get_json()
 
     logging.info(f"received {message}")
+
     entityId = df.EntityId("message_store", "my_message_store")
 
     logging.info(f"saving {message}")
