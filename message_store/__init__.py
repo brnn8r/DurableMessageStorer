@@ -21,13 +21,13 @@ def entity_function(context: df.DurableEntityContext):
 
         logging.info(f"persisting {saved_messages}")
 
-        context.set_state([]])
+        context.set_state([])
 
-        logging.info(f"purged saved messages after persisting")
+        logging.info("purged saved messages after persisting")
     else:
         raise ValueError(f"Unknown operation {operation}")
 
     context.set_result(context.get_state(lambda: []))
 
 
-main=df.Entity.create(entity_function)
+main = df.Entity.create(entity_function)
