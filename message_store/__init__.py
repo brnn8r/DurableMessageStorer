@@ -16,18 +16,17 @@ def entity_function(context: df.DurableEntityContext):
         saved_messages.append(message)
 
         context.set_state(saved_messages)
+        context.set_result(saved_messages)
 
     elif operation == "persist":
 
         logging.info(f"persisting {saved_messages}")
 
-        context.set_state([])
+        context.destruct_on_exit()
 
         logging.info("purged saved messages after persisting")
     else:
         raise ValueError(f"Unknown operation {operation}")
-
-    context.set_result(context.get_state(lambda: []))
 
 
 main = df.Entity.create(entity_function)
